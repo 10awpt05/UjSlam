@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sullan_Slambook</string>
+
+    <string-array name="colors_array">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Orange</item>
+        <item>Purple</item>
+        <item>Pink</item>
+        <item>Black</item>
+        <item>White</item>
+    </string-array>
+
+</resources>
