@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view_activity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Personal Information -->
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Name:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surname:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvGmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gmail Account:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Birth Date:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <!-- Favorites Section -->
+            <TextView
+                android:id="@+id/tvFavorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Favorite's"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Place:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFruit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fruit:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Food:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Song:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Movie:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Artist:"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvHobbiesview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hobbie's"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp" />
+
+            <!-- Open-Ended Questions -->
+            <TextView
+                android:id="@+id/tvHobby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What's your favorite hobby?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvRelax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What's your favorite way to relax?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvCantLiveWithout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A hobby you can't live without?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvHappiestMoment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your happiest moment in life?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvInspiration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What inspires you every day?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvHobbies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Emotion"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp" />
+
+            <!-- Additional Questions -->
+            <TextView
+                android:id="@+id/tvPeace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What is peace to me?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvJoy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What brings you joy?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvAngerTrigger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What triggers my anger?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSadness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Do I embrace sadness?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvBiggestDream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What’s your biggest dream?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What makes you feel safe?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Experience"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvLifeChange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Biggest life change?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvChallengingMoment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Most challenging moment?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvMeaningfulExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Most meaningful experience?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSelfDiscovery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recent self-discovery?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvMotivation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What motivates you?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What do you fear?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvProudestMoment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Proudest moment?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvSexExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Have you experienced sex?"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <!-- Action Buttons -->
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/blue2" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/red" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
