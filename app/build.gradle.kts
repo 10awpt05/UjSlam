@@ -54,5 +54,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.airbnb.android:lottie:6.0.0")
     implementation ("androidx.core:core-ktx:1.12.0") // Ensure this version or higher
+    implementation ("com.google.code.gson:gson:2.8.9")
+
 
 }

@@ -13,28 +13,28 @@
         android:theme="@style/Theme.Sullan_Slambook"
         tools:targetApi="31">
         <activity
+            android:name=".FieldsActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditActivity"
             android:exported="false" />
         <activity
             android:name=".view_activity"
             android:exported="false" />
         <activity
-            android:name=".experience_activity"
+            android:name=".ExperienceActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileViewActivity"
+            android:name=".MySlampagesActivity"
             android:exported="false" />
         <activity
-            android:name=".myslampages_activity"
+            android:name=".HobbiesActivity"
             android:exported="false" />
         <activity
-            android:name=".hobbies_activity"
+            android:name=".MyEmotionActivity"
             android:exported="false" />
         <activity
-            android:name=".myemotion_activity"
-            android:exported="false" />
-        <activity
-            android:name=".FavoritesActivity"
+            android:name=".FavoriteActivity"
             android:exported="false" />
         <activity
             android:name=".ComposeActivity"

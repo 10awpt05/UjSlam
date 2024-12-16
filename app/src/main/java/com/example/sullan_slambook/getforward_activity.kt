@@ -16,8 +16,9 @@ class getforward_activity : AppCompatActivity() {
 
         binding = ActivityGetforwardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.myslampages.setOnClickListener{
-            val toSlam = Intent(this, myslampages_activity::class.java)
+            val toSlam = Intent(this, MySlampagesActivity::class.java)
             startActivity(toSlam)
         }
 

@@ -123,10 +123,10 @@
 
     <!-- Save Button -->
     <Button
-        android:id="@+id/btnhobbiestoemotion"
+        android:id="@+id/hobbiesDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next to My Emotion!"
+        android:text="Done"
         android:textSize="20sp"
         android:backgroundTint="@color/blue2"
         app:layout_constraintBottom_toBottomOf="parent"
