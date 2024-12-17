@@ -169,21 +169,6 @@
                 android:textSize="16sp"
                 android:paddingBottom="8dp" />
 
-            <TextView
-                android:id="@+id/tvRelax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="What's your favorite way to relax?"
-                android:textSize="16sp"
-                android:paddingBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvCantLiveWithout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="A hobby you can't live without?"
-                android:textSize="16sp"
-                android:paddingBottom="8dp" />
 
             <TextView
                 android:id="@+id/tvHappiestMoment"
@@ -193,13 +178,7 @@
                 android:textSize="16sp"
                 android:paddingBottom="8dp" />
 
-            <TextView
-                android:id="@+id/tvInspiration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="What inspires you every day?"
-                android:textSize="16sp"
-                android:paddingBottom="8dp" />
+
 
             <TextView
                 android:id="@+id/tvHobbies"
@@ -324,14 +303,6 @@
                 android:textSize="16sp"
                 android:paddingBottom="8dp" />
 
-            <TextView
-                android:id="@+id/tvSexExperience"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Have you experienced sex?"
-                android:textSize="16sp"
-                android:paddingBottom="8dp" />
-
             <!-- Action Buttons -->
             <Button
                 android:id="@+id/editButton"
@@ -348,8 +319,14 @@
                 android:text="Delete"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/red" />
-
+            <Button
+                android:id="@+id/btnbackview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

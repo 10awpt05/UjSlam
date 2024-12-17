@@ -1,6 +1,7 @@
 package com.example.sullan_slambook
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,13 +10,10 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.sullan_slambook.databinding.ActivityComposeBinding
 import com.example.sullan_slambook.databinding.ActivityFieldsBinding
 import com.example.sullan_slambook.model.UserInfo
+import java.util.*
 
 class FieldsActivity : AppCompatActivity() {
 
@@ -27,11 +25,12 @@ class FieldsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFieldsBinding.inflate((layoutInflater))
+        binding = ActivityFieldsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sharedPrefHelper = SharedPrefHelper(this)
-        populateBirthDateSpinner()
+
+        setupBirthDatePicker()
 
         val colors = resources.getStringArray(R.array.colors_array)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, colors)
@@ -48,130 +47,92 @@ class FieldsActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.cardMore.setOnClickListener{
-            if(binding.scrollView2.visibility == View.GONE) {
-                binding.scrollView2.visibility = View.VISIBLE
-                binding.cardEmo.visibility = View.GONE
-                binding.cardExp.visibility = View.GONE
-                binding.cardFav.visibility = View.GONE
-                binding.cardHob.visibility = View.GONE
-            }else{
-                binding.scrollView2.visibility = View.GONE
-                binding.cardEmo.visibility = View.VISIBLE
-                binding.cardExp.visibility = View.VISIBLE
-                binding.cardFav.visibility = View.VISIBLE
-                binding.cardHob.visibility = View.VISIBLE
-            }
+        setupToggleCards()
+        setupSaveButton()
+    }
+
+    private fun setupBirthDatePicker() {
+        binding.birthDateButton.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePickerDialog = DatePickerDialog(
+                this,
+                { _, selectedYear, selectedMonth, selectedDay ->
+                    val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                    binding.birthDateButton.text = selectedDate
+                },
+                year,
+                month,
+                day
+            )
+
+            datePickerDialog.show()
+        }
+    }
+
+    private fun setupToggleCards() {
+        // Your existing toggle card logic for visibility
+        binding.cardMore.setOnClickListener {
+            toggleVisibility(binding.scrollView2, binding.cardEmo, binding.cardExp, binding.cardFav, binding.cardHob)
         }
 
-        binding.cardFav.setOnClickListener{
-            if(binding.scrollFav.visibility == View.GONE) {
-                binding.scrollFav.visibility = View.VISIBLE
-                binding.cardEmo.visibility = View.GONE
-                binding.cardExp.visibility = View.GONE
-                binding.cardMore.visibility = View.GONE
-                binding.cardHob.visibility = View.GONE
-            }else{
-                binding.scrollFav.visibility = View.GONE
-                binding.cardEmo.visibility = View.VISIBLE
-                binding.cardExp.visibility = View.VISIBLE
-                binding.cardMore.visibility = View.VISIBLE
-                binding.cardHob.visibility = View.VISIBLE
-            }
+        binding.cardFav.setOnClickListener {
+            toggleVisibility(binding.scrollFav, binding.cardEmo, binding.cardExp, binding.cardMore, binding.cardHob)
         }
 
-        binding.cardEmo.setOnClickListener{
-            if(binding.scrollEmo.visibility == View.GONE) {
-                binding.scrollEmo.visibility = View.VISIBLE
-                binding.cardFav.visibility = View.GONE
-                binding.cardExp.visibility = View.GONE
-                binding.cardMore.visibility = View.GONE
-                binding.cardHob.visibility = View.GONE
-            }else{
-                binding.scrollEmo.visibility = View.GONE
-                binding.cardFav.visibility = View.VISIBLE
-                binding.cardExp.visibility = View.VISIBLE
-                binding.cardMore.visibility = View.VISIBLE
-                binding.cardHob.visibility = View.VISIBLE
-            }
-        }
-        binding.cardExp.setOnClickListener{
-            if(binding.scrollExp.visibility == View.GONE) {
-                binding.scrollExp.visibility = View.VISIBLE
-                binding.cardFav.visibility = View.GONE
-                binding.cardEmo.visibility = View.GONE
-                binding.cardMore.visibility = View.GONE
-                binding.cardHob.visibility = View.GONE
-            }else{
-                binding.scrollExp.visibility = View.GONE
-                binding.cardFav.visibility = View.VISIBLE
-                binding.cardEmo.visibility = View.VISIBLE
-                binding.cardMore.visibility = View.VISIBLE
-                binding.cardHob.visibility = View.VISIBLE
-            }
-        }
-        binding.cardHob.setOnClickListener{
-            if(binding.scrollHob.visibility == View.GONE) {
-                binding.scrollHob.visibility = View.VISIBLE
-                binding.cardFav.visibility = View.GONE
-                binding.cardEmo.visibility = View.GONE
-                binding.cardMore.visibility = View.GONE
-                binding.cardExp.visibility = View.GONE
-            }else{
-                binding.scrollHob.visibility = View.GONE
-                binding.cardFav.visibility = View.VISIBLE
-                binding.cardEmo.visibility = View.VISIBLE
-                binding.cardMore.visibility = View.VISIBLE
-                binding.cardExp.visibility = View.VISIBLE
-            }
-        }
-        //--------BUTTON DONE--------------
-        binding.favDone.setOnClickListener{
-                binding.scrollFav.visibility = View.GONE
-                binding.cardHob.visibility = View.VISIBLE
-                binding.cardEmo.visibility = View.VISIBLE
-                binding.cardMore.visibility = View.VISIBLE
-                binding.cardExp.visibility = View.VISIBLE
-        }
-        binding.hobbiesDone.setOnClickListener{
-            binding.scrollHob.visibility = View.GONE
-            binding.cardFav.visibility = View.VISIBLE
-            binding.cardEmo.visibility = View.VISIBLE
-            binding.cardMore.visibility = View.VISIBLE
-            binding.cardExp.visibility = View.VISIBLE
+        binding.cardEmo.setOnClickListener {
+            toggleVisibility(binding.scrollEmo, binding.cardFav, binding.cardExp, binding.cardMore, binding.cardHob)
         }
 
-        binding.moreDone.setOnClickListener{
-            binding.scrollHob.visibility = View.VISIBLE
-            binding.cardFav.visibility = View.VISIBLE
-            binding.cardEmo.visibility = View.VISIBLE
-            binding.cardMore.visibility = View.GONE
-            binding.cardExp.visibility = View.VISIBLE
+        binding.cardExp.setOnClickListener {
+            toggleVisibility(binding.scrollExp, binding.cardFav, binding.cardEmo, binding.cardMore, binding.cardHob)
         }
 
-        binding.ExperDone.setOnClickListener{
-            binding.scrollHob.visibility = View.VISIBLE
-            binding.cardFav.visibility = View.VISIBLE
-            binding.cardEmo.visibility = View.VISIBLE
-            binding.cardMore.visibility = View.VISIBLE
-            binding.cardExp.visibility = View.GONE
+        binding.cardHob.setOnClickListener {
+            toggleVisibility(binding.scrollHob, binding.cardFav, binding.cardEmo, binding.cardMore, binding.cardExp)
         }
 
-        binding.EmoDone.setOnClickListener{
-            binding.scrollHob.visibility = View.VISIBLE
-            binding.cardFav.visibility = View.VISIBLE
-            binding.cardEmo.visibility = View.GONE
-            binding.cardMore.visibility = View.VISIBLE
-            binding.cardExp.visibility = View.VISIBLE
-        }
+        // Done buttons logic
+        binding.favDone.setOnClickListener { resetCardVisibility() }
+        binding.hobbiesDone.setOnClickListener { resetCardVisibility() }
+        binding.moreDone.setOnClickListener { resetCardVisibility() }
+        binding.ExperDone.setOnClickListener { resetCardVisibility() }
+        binding.EmoDone.setOnClickListener { resetCardVisibility() }
+    }
 
-        binding.save.setOnClickListener{
+    private fun toggleVisibility(targetView: View, vararg otherViews: View) {
+        if (targetView.visibility == View.GONE) {
+            targetView.visibility = View.VISIBLE
+            otherViews.forEach { it.visibility = View.GONE }
+        } else {
+            targetView.visibility = View.GONE
+            otherViews.forEach { it.visibility = View.VISIBLE }
+        }
+    }
+
+    private fun resetCardVisibility() {
+        binding.scrollFav.visibility = View.GONE
+        binding.scrollHob.visibility = View.GONE
+        binding.scrollView2.visibility = View.GONE
+        binding.scrollExp.visibility = View.GONE
+        binding.scrollEmo.visibility = View.GONE
+
+        binding.cardFav.visibility = View.VISIBLE
+        binding.cardEmo.visibility = View.VISIBLE
+        binding.cardMore.visibility = View.VISIBLE
+        binding.cardExp.visibility = View.VISIBLE
+        binding.cardHob.visibility = View.VISIBLE
+    }
+
+    private fun setupSaveButton() {
+        binding.save.setOnClickListener {
             saveUserInfo()
         }
-
-
-
     }
+
     private fun saveUserInfo() {
         val username = binding.username.text.toString()
         val password = binding.password.text.toString()
@@ -180,7 +141,7 @@ class FieldsActivity : AppCompatActivity() {
         val address = binding.address.text.toString()
         val number = binding.number.text.toString()
         val gmail = binding.gmail.text.toString()
-        val birthDate = binding.birthDateSpinner.selectedItem.toString()
+        val birthDate = binding.birthDateButton.text.toString()
         val color = binding.colorSpinner.selectedItem.toString()
         val place = binding.place.text.toString()
         val fruit = binding.fruit.text.toString()
@@ -232,21 +193,6 @@ class FieldsActivity : AppCompatActivity() {
         val intent = Intent(this, MySlampagesActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-
-    private fun populateBirthDateSpinner() {
-        val dates = (1..31).map { it.toString() }.toMutableList()
-        val months = listOf(
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        )
-
-        val datesAndMonths = listOf("Select Birth Date") + dates + months
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, datesAndMonths)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.birthDateSpinner.adapter = adapter
     }
 
     private fun openGallery() {

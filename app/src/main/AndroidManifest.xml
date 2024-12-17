@@ -6,12 +6,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/book"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/book"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sullan_Slambook"
         tools:targetApi="31">
+        <activity
+            android:name=".EditView"
+            android:exported="false" />
         <activity
             android:name=".FieldsActivity"
             android:exported="false" />
@@ -22,22 +25,7 @@
             android:name=".view_activity"
             android:exported="false" />
         <activity
-            android:name=".ExperienceActivity"
-            android:exported="false" />
-        <activity
             android:name=".MySlampagesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HobbiesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyEmotionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FavoriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ComposeActivity"
             android:exported="false" />
         <activity
             android:name=".getforward_activity"
