@@ -23,7 +23,7 @@ class getforward_activity : AppCompatActivity() {
         }
 
         binding.compose.setOnClickListener {
-            val toCompose = Intent(this, ComposeActivity::class.java)
+            val toCompose = Intent(this, FieldsActivity::class.java)
             startActivity(toCompose)
             // finish()
         }

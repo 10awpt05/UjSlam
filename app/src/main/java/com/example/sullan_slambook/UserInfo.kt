@@ -11,7 +11,7 @@
         val fullName: String? = "",
         val gender: String? = "",
         val address: String? = "",
-        val age: Int = 0,
+      //  val age: Int = 0,
         val number: String? = "",
         val gmail: String? = "",
         val birthDate: String? = "",
@@ -60,7 +60,7 @@
             parcel.readString() ?: "",
             parcel.readString() ?: "",
             parcel.readString() ?: "",
-            parcel.readInt(),
+       //     parcel.readInt(),
             parcel.readString() ?: "",
             parcel.readString() ?: "",
             parcel.readString() ?: "",
@@ -102,7 +102,7 @@
             parcel.writeString(fullName)
             parcel.writeString(gender)
             parcel.writeString(address)
-            parcel.writeInt(age)
+          //  parcel.writeInt(age)
             parcel.writeString(number)
             parcel.writeString(gmail)
             parcel.writeString(birthDate)
